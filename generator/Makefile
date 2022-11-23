@@ -87,8 +87,7 @@ docker-publish:
 docker-tag-latest:
 	docker tag "$(DOCKER_REPO)/$(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_TAG)" "$(DOCKER_REPO)/$(DOCKER_IMAGE_NAME):latest"
 
-.PHONY: mibs
-mibs: mib-dir \
+mibs: \
   $(MIBDIR)/apc-powernet-mib \
   $(MIBDIR)/AIRESPACE-REF-MIB \
   $(MIBDIR)/AIRESPACE-WIRELESS-MIB \
@@ -127,9 +126,6 @@ mibs: mib-dir \
   $(MIBDIR)/EATON-EPDU-MIB.txt \
   $(MIBDIR)/EATON-SENSOR-MIB.txt \
   $(MIBDIR)/EATON-OIDS.txt
-
-mib-dir:
-	@mkdir -p -v $(MIBDIR)
 
 $(MIBDIR)/apc-powernet-mib:
 	@echo ">> Downloading apc-powernet-mib"
